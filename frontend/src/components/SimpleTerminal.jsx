@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Terminal as XTerm } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
 import { WebLinksAddon } from '@xterm/addon-web-links';
-import { Unicode11Addon } from '@xterm/addon-unicode11';
+// import { Unicode11Addon } from '@xterm/addon-unicode11';  // TODO: Fix error with Unicode11
 import '@xterm/xterm/css/xterm.css';
 
 export function SimpleTerminal({ color = '#00ff00', agentName = 'Agent', onConnect, onDisconnect }) {
@@ -49,16 +49,16 @@ export function SimpleTerminal({ color = '#00ff00', agentName = 'Agent', onConne
 
     const fitAddon = new FitAddon();
     const webLinksAddon = new WebLinksAddon();
-    const unicode11Addon = new Unicode11Addon();
+    // const unicode11Addon = new Unicode11Addon();  // TODO: Fix error
 
     xterm.loadAddon(fitAddon);
     xterm.loadAddon(webLinksAddon);
-    xterm.loadAddon(unicode11Addon);
+    // xterm.loadAddon(unicode11Addon);  // TODO: Fix error
 
     xterm.open(terminalRef.current);
 
-    // Activate Unicode 11 support for proper character width handling in TUI apps
-    xterm.unicode.activeVersion = '11';
+    // TODO: Re-enable Unicode 11 support after fixing error
+    // xterm.unicode.activeVersion = '11';
 
     // Auto-focus terminal for keyboard input
     setTimeout(() => {
